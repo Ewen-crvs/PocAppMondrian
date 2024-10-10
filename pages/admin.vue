@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-[#404040] bg-cover bg-center w-auto h-screen">
-    <div class="bg-[url('/public/assets/image2.svg')] bg-cover bg-center w-auto h-screen">
-      <div class="bg-gray-700/50 bg-cover bg-center w-auto h-screen">
+  <div class="bg-[#404040] bg-cover bg-center w-auto h-auto">
+    <div class="pb-20 bg-[url('/public/assets/image2.svg')] bg-cover bg-center w-auto h-auto">
+      <div class="bg-gray-700/50 bg-cover bg-center w-auto h-auto">
         <div class="max-w-xs mx-auto">
           <!-- Logo -->
           <div class="justify-center flex pt-10">
