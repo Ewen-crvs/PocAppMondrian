@@ -43,10 +43,10 @@ const firstName = ref('')
 const lastName = ref('')
 
 function onSubmit() {
-  console.log(firstName.value, lastName.value)
   if (firstName.value == 'admin' && lastName.value == 'admin') {
-    console.log('admiiiinn')
     router.push({ path: '/admin' })
+  } else {
+    router.push({ path: '/script' })
   }
 }
 </script>
