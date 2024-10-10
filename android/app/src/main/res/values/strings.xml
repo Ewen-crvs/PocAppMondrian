@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">HoloQuizz</string>
+    <string name="title_activity_main">HoloQuizz</string>
+    <string name="package_name">org.holoquizz.app</string>
+    <string name="custom_url_scheme">org.holoquizz.app</string>
+</resources>
