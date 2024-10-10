@@ -9,17 +9,20 @@
           </div>
 
           <!-- Timer -->
-          <div class="text-center mt-4">
-            <p class="text-white text-xl">Temps restant : {{ timeLeft }}s</p>
+          <div v-if="!showMessage && timeLeft > 3" class="flex justify-center mt-7">
+            <span class="inline-flex items-center rounded-md bg-gray-300/10 px-2 py-1 text-sm font-medium text-gray-300 ring-1 ring-inset ring-gray-300/20">Temps restant : {{ timeLeft }}s</span>
+          </div>
+          <div v-if="!showMessage && timeLeft <= 3" class="flex justify-center mt-7">
+            <span class="inline-flex items-center rounded-md bg-red-400/10 px-2 py-1 text-sm font-medium text-red-400 ring-1 ring-inset ring-red-400/20">Temps restant : {{ timeLeft }}s</span>
           </div>
 
           <!-- Question -->
-          <div class="bg-[#F0DA9C] mt-6 p-6 rounded-xl" v-if="!showTransitionScreen">
+          <div v-if="!lastResponse" class="bg-[#F0DA9C] mt-6 p-6 rounded-xl">
             <p>{{ currentQuestion.title }}</p>
           </div>
 
           <!-- Réponses -->
-          <div v-if="!showMessage && !showTransitionScreen" class="mt-6 space-y-6 px-6">
+          <div v-if="!showMessage" class="mt-6 space-y-6 px-6">
             <button
                 v-for="(answer, index) in currentQuestion.answers"
                 :key="index"
@@ -30,30 +33,33 @@
             </button>
           </div>
 
-          <!-- Écran de transition -->
-          <div v-if="showTransitionScreen" class="mt-6 rounded-md bg-blue-50 p-4">
-            <div class="text-center">
-              <h3 class="text-sm font-medium text-blue-800">Veuillez patienter, la prochaine question arrive...</h3>
-            </div>
-          </div>
-
           <!-- Message pour réponse correcte ou incorrecte -->
-          <div v-if="showMessage && !showTransitionScreen" class="mt-6 rounded-md" :class="goodResponse ? 'bg-green-50' : 'bg-red-50'">
+          <div v-if="showMessage && !lastResponse" class="mt-6 rounded-md" :class="goodResponse ? 'bg-green-50' : 'bg-red-50'">
             <div class="p-4">
               <div class="text-center">
                 <h3 class="text-sm font-medium" :class="goodResponse ? 'text-green-800' : 'text-red-800'">
-                  {{ goodResponse ? 'Bonne réponse !' : 'Mauvaise réponse !' }}
+                  {{ goodResponse ? 'Bonne réponse !' : 'Dommage...' }}
                 </h3>
                 <p class="mt-2 text-sm" :class="goodResponse ? 'text-green-700' : 'text-red-700'">{{ message }}</p>
               </div>
             </div>
           </div>
 
-          <!-- Bouton suivant -->
-          <div v-if="showNextButton && !showTransitionScreen" class="mt-10">
-            <button @click="nextQuestion" class="w-full bg-[#F0DA9C] text-black font-bold py-2 px-4 rounded">
-              Suivant
-            </button>
+          <div v-if="showMessage && lastResponse">
+            <div class="bg-green-50 mt-12 rounded-md">
+              <div class="p-4">
+                <div class="text-center">
+                  <h3 class="text-sm font-medium text-green-800">
+                    {{ message }}
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="mt-12">
+              <NuxtLink to="/">
+                <button class="flex w-full justify-center rounded-md bg-slate-900/70 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Retourner au Menu</button>
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
@@ -66,16 +72,14 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import questions from '../public/data/questions.json';
 
 // Déclaration des variables
-let currentQuestionIndex = ref(0);
+let currentQuestionIndex = ref(9);
 let currentQuestion = ref(questions[currentQuestionIndex.value]);
 let showMessage = ref(false);
 let goodResponse = ref(false);
 let lastResponse = ref(false);
 let message = ref('');
-let showNextButton = ref(false);
-let timeLeft = ref(10); // Timer initialisé à 10 secondes
+let timeLeft = ref(10);
 let timer: number | undefined;
-let showTransitionScreen = ref(false); // Pour l'écran de transition
 
 // Démarrer le timer quand le composant est monté
 onMounted(() => {
@@ -96,10 +100,10 @@ function startTimer() {
     } else {
       clearInterval(timer);
       if (!showMessage.value) {
+        message.value = currentQuestion.value.complement;
         showMessage.value = true;
-        setTimeout(() => showTransitionScreen.value = true, 10000);
       }
-      setTimeout(() => nextQuestion(), 10000); // Passer à la question suivante après 2s
+      setTimeout(() => nextQuestion(), 10000); // Passer à la question suivante après 10s
       clearInterval(timer);
     }
   }, 1000);
@@ -114,16 +118,11 @@ function checkAnswer(answer: string) {
     message.value = currentQuestion.value.complement;
     goodResponse.value = false;
   }
-  //clearInterval(timer); // Arrêter le timer une fois la réponse donnée
-  //showTransitionScreen.value = true; // Afficher l'écran de transition
-  //setTimeout(() => nextQuestion(), 3000);
 }
 
 // Fonction pour passer à la question suivante
 function nextQuestion() {
   showMessage.value = false;
-  showNextButton.value = false;
-  showTransitionScreen.value = false;
 
   if (currentQuestionIndex.value < questions.length - 1) {
     currentQuestionIndex.value++;
@@ -133,7 +132,6 @@ function nextQuestion() {
     message.value = "Félicitations, vous avez terminé le jeu !";
     showMessage.value = true;
     lastResponse.value = true;
-    showNextButton.value = false;
   }
 }
 </script>
