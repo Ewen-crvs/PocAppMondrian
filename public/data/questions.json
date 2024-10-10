@@ -1,0 +1,107 @@
+[
+    {
+        "title": "Quelle est l'œuvre la plus célèbre de Vincent van Gogh ?",
+        "right_answer": "La Nuit étoilée",
+        "answers": [
+            "Les Tournesols",
+            "La Nuit étoilée",
+            "L'Angélus",
+            "La Joconde"
+        ],
+        "complement": "Peinte en 1889, 'La Nuit étoilée' est l'une des œuvres les plus connues de Vincent van Gogh. Elle représente la vue nocturne depuis la chambre de l'artiste dans un asile à Saint-Rémy-de-Provence."
+    },
+    {
+        "title": "Quel artiste est célèbre pour ses peintures de nénuphars ?",
+        "right_answer": "Claude Monet",
+        "answers": [
+            "Édouard Manet",
+            "Pierre-Auguste Renoir",
+            "Georges Seurat",
+            "Claude Monet"
+        ],
+        "complement": "Claude Monet est un peintre impressionniste connu pour ses séries de toiles représentant des nénuphars dans son jardin à Giverny. Cette série montre l’évolution de son style au fil des ans."
+    },
+    {
+        "title": "Quel tableau est aussi appelé 'La Gioconda' ?",
+        "right_answer": "La Joconde",
+        "answers": [
+            "La Jeune Fille à la perle",
+            "Le Cri",
+            "La Joconde",
+            "Le Radeau de la Méduse"
+        ],
+        "complement": "'La Joconde', également connue sous le nom de 'La Gioconda', est l'un des portraits les plus célèbres de Léonard de Vinci. Son sourire mystérieux a suscité de nombreuses interprétations."
+    },
+    {
+        "title": "Quel artiste a coupé une partie de son oreille ?",
+        "right_answer": "Vincent van Gogh",
+        "answers": [
+            "Pablo Picasso",
+            "Paul Gauguin",
+            "Vincent van Gogh",
+            "Henri Matisse"
+        ],
+        "complement": "En 1888, Vincent van Gogh a coupé une partie de son oreille gauche lors d'une crise psychologique à Arles, en France. Cet incident est l'un des événements les plus célèbres de sa vie tourmentée."
+    },
+    {
+        "title": "Quel peintre est connu pour ses tableaux cubistes tels que 'Les Demoiselles d'Avignon' ?",
+        "right_answer": "Pablo Picasso",
+        "answers": [
+            "Georges Braque",
+            "Paul Cézanne",
+            "Henri Rousseau",
+            "Pablo Picasso"
+        ],
+        "complement": "Pablo Picasso est l’un des fondateurs du cubisme, un mouvement artistique qui a révolutionné la perspective dans la peinture. Son œuvre 'Les Demoiselles d'Avignon', peinte en 1907, est un exemple majeur de ce style."
+    },
+    {
+        "title": "Quel mouvement artistique a introduit l'idée de l'« action painting » ?",
+        "right_answer": "Expressionnisme abstrait",
+        "answers": [
+            "Impressionnisme",
+            "Futurisme",
+            "Expressionnisme abstrait",
+            "Dadaïsme"
+        ],
+        "complement": "L'« action painting » est une technique de peinture gestuelle où l'artiste utilise des mouvements spontanés pour créer son œuvre. Jackson Pollock est l'une des figures emblématiques de ce style au sein de l'expressionnisme abstrait."
+    },
+    {
+        "title": "Quel artiste est connu pour ses sculptures monumentales de mobiles ?",
+        "right_answer": "Alexander Calder",
+        "answers": [
+            "Auguste Rodin",
+            "Jeff Koons",
+            "Alexander Calder",
+            "Alberto Giacometti"
+        ],
+        "complement": "Alexander Calder est célèbre pour ses mobiles, des sculptures suspendues qui bougent légèrement grâce aux courants d'air. Il est l’un des pionniers de la sculpture cinétique."
+    },
+    {
+        "title": "Qui a peint 'Le Cri', une des œuvres les plus célèbres du symbolisme ?",
+        "right_answer": "Edvard Munch",
+        "answers": [
+            "Henri Rousseau",
+            "Edvard Munch",
+            "Gustav Klimt",
+            "Francisco Goya"
+        ],
+        "complement": "'Le Cri', peint par Edvard Munch en 1893, est une représentation puissante de l'angoisse existentielle. Il est souvent considéré comme l'un des tableaux les plus reconnaissables dans l'histoire de l'art."
+    },
+    {
+        "title": "Quel artiste est connu pour ses portraits géométriques et colorés, comme dans son œuvre 'Composition avec rouge, bleu et jaune' ?",
+        "right_answer": "Piet Mondrian",
+        "answers": [
+            "Kazimir Malevitch",
+            "Wassily Kandinsky",
+            "Piet Mondrian",
+            "Paul Klee"
+        ],
+        "complement": "Piet Mondrian est un pionnier du mouvement De Stijl, qui utilise des formes géométriques simples et des couleurs primaires. Son style abstrait a influencé de nombreux artistes modernes."
+    },
+    {
+        "title": "Quel artiste est célèbre pour avoir peint des tableaux de soupers, comme 'Le Dernier Souper' ?",
+        "right_answer": "Léonard de Vinci",
+        "answers": ["Michel-Ange", "Raphaël", "Léonard de Vinci", "Caravage"],
+        "complement": "Peint entre 1495 et 1498, 'Le Dernier Souper' de Léonard de Vinci est l'une des œuvres les plus célèbres de la Renaissance. Elle représente le moment où Jésus annonce qu'un des apôtres va le trahir."
+    }
+]
