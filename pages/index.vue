@@ -10,23 +10,21 @@
             <div class="bg-slate-800/50 px-6 py-12 shadow sm:rounded-lg sm:px-12 rounded-xl">
               <form method="POST">
                 <div>
-                  <label for="email" class="block text-sm font-medium leading-6 text-white">Nom</label>
+                  <label class="block text-sm font-medium leading-6 text-white">Nom</label>
                   <div class="mt-2">
-                    <input class="block w-full bg-slate-900/70 rounded-md border-0 py-1.5 text-gray-200 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6" />
+                    <input v-model="lastName" class="px-2 block w-full bg-slate-900/70 rounded-md border-0 py-1.5 text-gray-200 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="mt-6">
-                  <label for="password" class="block text-sm font-medium leading-6 text-white">Prénom</label>
+                  <label class="block text-sm font-medium leading-6 text-white">Prénom</label>
                   <div class="mt-2 mb-2">
-                    <input class="block w-full bg-slate-900/70 rounded-md border-0 py-1.5 text-gray-200 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6" />
+                    <input v-model="firstName" class="px-2 block w-full bg-slate-900/70 rounded-md border-0 py-1.5 text-gray-200 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="mt-12">
-                  <NuxtLink to="/script">
-                    <button class="flex w-full justify-center rounded-md bg-slate-900/70 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Commencer</button>
-                  </NuxtLink>
+                  <button @click.prevent="onSubmit()" class="flex w-full justify-center rounded-md bg-slate-900/70 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Commencer</button>
                 </div>
               </form>
             </div>
@@ -37,4 +35,18 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+
+const router = useRouter()
+const firstName = ref('')
+const lastName = ref('')
+
+function onSubmit() {
+  console.log(firstName.value, lastName.value)
+  if (firstName.value == 'admin' && lastName.value == 'admin') {
+    console.log('admiiiinn')
+    router.push({ path: '/admin' })
+  }
+}
 </script>
