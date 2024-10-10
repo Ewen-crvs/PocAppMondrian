@@ -43,7 +43,7 @@ const firstName = ref('')
 const lastName = ref('')
 
 function onSubmit() {
-  if (firstName.value == 'admin' && lastName.value == 'admin') {
+  if (firstName.value.toLowerCase() == 'admin' && lastName.value.toLowerCase() == 'admin') {
     router.push({ path: '/admin' })
   } else {
     router.push({ path: '/script' })

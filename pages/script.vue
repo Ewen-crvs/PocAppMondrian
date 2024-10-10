@@ -72,7 +72,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import questions from '../public/data/questions.json';
 
 // Déclaration des variables
-let currentQuestionIndex = ref(9);
+let currentQuestionIndex = ref(0);
 let currentQuestion = ref(questions[currentQuestionIndex.value]);
 let showMessage = ref(false);
 let goodResponse = ref(false);
